@@ -8,7 +8,7 @@ Type "cargo build"
 Enter
 Type "clear"
 Enter
-Type "./target/debug/compact-calendar --config tests/fixtures/simple.toml --year 2024 --no-strikethrough-past"
+Type "./target/debug/compact-calendar-cli --config tests/fixtures/simple.toml --year 2024 --no-strikethrough-past"
 Enter
 Sleep 2s
 Screenshot images/readme.png

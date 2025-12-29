@@ -1,10 +1,10 @@
-compact-calendar
+compact-calendar-cli
 ===============================
 
-[<img alt="github" src="https://img.shields.io/badge/github-wcampbell0x2a/compact--calendar-8da0cb?style=for-the-badge&labelColor=555555&logo=github" height="20">](https://github.com/wcampbell0x2a/compact-calendar)
-[<img alt="crates.io" src="https://img.shields.io/crates/v/compact-calendar.svg?style=for-the-badge&color=fc8d62&logo=rust" height="20">](https://crates.io/crates/compact-calendar)
-[<img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-compact--calendar-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs" height="20">](https://docs.rs/compact-calendar)
-[<img alt="build status" src="https://img.shields.io/github/actions/workflow/status/wcampbell0x2a/compact-calendar/main.yml?branch=master&style=for-the-badge" height="20">](https://github.com/wcampbell0x2a/compact-calendar/actions?query=branch%3Amaster)
+[<img alt="github" src="https://img.shields.io/badge/github-wcampbell0x2a/calendar--cli-8da0cb?style=for-the-badge&labelColor=555555&logo=github" height="20">](https://github.com/wcampbell0x2a/compact-calendar-cli)
+[<img alt="crates.io" src="https://img.shields.io/crates/v/compact-calendar-cli.svg?style=for-the-badge&color=fc8d62&logo=rust" height="20">](https://crates.io/crates/compact-calendar-cli)
+[<img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-calendar--cli-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs" height="20">](https://docs.rs/compact-calendar-cli)
+[<img alt="build status" src="https://img.shields.io/github/actions/workflow/status/wcampbell0x2a/compact-calendar-cli/main.yml?branch=master&style=for-the-badge" height="20">](https://github.com/wcampbell0x2a/compact-calendar-cli/actions?query=branch%3Amaster)
 
 A compact year-at-a-glance calendar CLI with TOML-based event highlighting.
 
@@ -21,16 +21,16 @@ Inspired by [David Seah's Compact Calendar](https://davidseah.com/node/compact-c
 Either build from published source in crates.io.
 *Compiler support: requires rustc 1.82.0+*
 ```
-$ cargo install compact-calendar --locked
+$ cargo install compact-calendar-cli --locked
 ```
 
-Or download from [github releases](https://github.com/wcampbell0x2a/compact-calendar/releases).
+Or download from [github releases](https://github.com/wcampbell0x2a/compact-calendar-cli/releases).
 
 ### Usage
 ```no_test
 A compact calendar CLI with TOML-based date details
 
-Usage: compact-calendar [OPTIONS]
+Usage: compact-calendar-cli [OPTIONS]
 
 Options:
   -y, --year <YEAR>              Year to display (defaults to current year)

@@ -1,5 +1,5 @@
 [package]
-name = "compact-calendar"
+name = "compact-calendar-cli"
 description = "A compact calendar CLI with TOML-based date details"
 version = "0.1.0"
 edition = "2021"

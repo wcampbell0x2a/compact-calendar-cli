@@ -1,10 +1,10 @@
-use compact_calendar::models::{ColorMode, PastDateDisplay, WeekStart, WeekendDisplay};
-use compact_calendar::rendering::CalendarRenderer;
+use compact_calendar_cli::models::{ColorMode, PastDateDisplay, WeekStart, WeekendDisplay};
+use compact_calendar_cli::rendering::CalendarRenderer;
 use std::path::PathBuf;
 
 fn create_calendar_from_config(year: i32, config_path: &str) -> String {
-    let config = compact_calendar::load_config(&PathBuf::from(config_path));
-    let calendar = compact_calendar::build_calendar(
+    let config = compact_calendar_cli::load_config(&PathBuf::from(config_path));
+    let calendar = compact_calendar_cli::build_calendar(
         year,
         WeekStart::Monday,
         WeekendDisplay::Normal,
@@ -55,8 +55,8 @@ fn test_empty_2025() {
 
 #[test]
 fn test_sunday_start_2024() {
-    let config = compact_calendar::load_config(&PathBuf::from("tests/fixtures/simple.toml"));
-    let calendar = compact_calendar::build_calendar(
+    let config = compact_calendar_cli::load_config(&PathBuf::from("tests/fixtures/simple.toml"));
+    let calendar = compact_calendar_cli::build_calendar(
         2024,
         WeekStart::Sunday,
         WeekendDisplay::Normal,
