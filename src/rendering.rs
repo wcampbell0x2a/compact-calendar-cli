@@ -854,10 +854,10 @@ impl<'a> CalendarRenderer<'a> {
 
     fn get_date_color(&self, date: NaiveDate) -> Option<String> {
         // In work mode, never color weekends
-        if self.calendar.color_mode == ColorMode::Work {
-            if date.weekday() == Weekday::Sat || date.weekday() == Weekday::Sun {
-                return None;
-            }
+        if self.calendar.color_mode == ColorMode::Work
+            && (date.weekday() == Weekday::Sat || date.weekday() == Weekday::Sun)
+        {
+            return None;
         }
 
         // Check if date has a specific color
