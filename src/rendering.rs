@@ -333,8 +333,8 @@ impl ColorPalette {
                 RgbColor(58, 132, 175),
             )),
             "light_purple" => Some(ColorValue::new(
-                RgbColor(230, 186, 255),
-                RgbColor(161, 130, 179),
+                RgbColor(210, 166, 255),
+                RgbColor(147, 116, 179),
             )),
             "light_red" => Some(ColorValue::new(
                 RgbColor(234, 108, 115),

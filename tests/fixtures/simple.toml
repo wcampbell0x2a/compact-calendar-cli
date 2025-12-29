@@ -16,7 +16,7 @@ description = "Sprint Planning"
 [[ranges]]
 start = "04-15"
 end = "04-30"
-color = "magenta"
+color = "purple"
 description = "Tax Season Crunch"
 
 [[ranges]]
@@ -82,7 +82,7 @@ color = "blue"
 
 [dates."10-31"]
 description = "Halloween"
-color = "magenta"
+color = "purple"
 
 [dates."11-11"]
 description = "Veterans Day"
@@ -115,7 +115,7 @@ color = "yellow"
 
 [dates."06-30"]
 description = "Mid-Year Review"
-color = "magenta"
+color = "purple"
 
 [dates."08-01"]
 description = "Product Launch"
@@ -131,7 +131,7 @@ color = "red"
 
 [dates."11-01"]
 description = "Annual Report Draft"
-color = "magenta"
+color = "purple"
 
 [dates."12-15"]
 description = "Year-End Review"
