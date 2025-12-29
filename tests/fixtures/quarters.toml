@@ -1,0 +1,40 @@
+# Quarterly planning calendar
+[[ranges]]
+start = "2023-01-01"
+end = "2023-03-31"
+color = "blue"
+description = "Q1 - Planning Phase"
+
+[[ranges]]
+start = "2023-04-01"
+end = "2023-06-30"
+color = "green"
+description = "Q2 - Development Phase"
+
+[[ranges]]
+start = "2023-07-01"
+end = "2023-09-30"
+color = "orange"
+description = "Q3 - Testing Phase"
+
+[[ranges]]
+start = "2023-10-01"
+end = "2023-12-31"
+color = "purple"
+description = "Q4 - Release Phase"
+
+[dates."2023-03-31"]
+description = "Q1 Review"
+color = "yellow"
+
+[dates."2023-06-30"]
+description = "Q2 Review"
+color = "yellow"
+
+[dates."2023-09-30"]
+description = "Q3 Review"
+color = "yellow"
+
+[dates."2023-12-31"]
+description = "Q4 Review"
+color = "yellow"

@@ -1,0 +1,138 @@
+# Simple calendar configuration for testing
+
+# Date ranges
+[[ranges]]
+start = "01-01"
+end = "01-07"
+color = "blue"
+description = "New Year Week"
+
+[[ranges]]
+start = "02-10"
+end = "02-16"
+color = "yellow"
+description = "Sprint Planning"
+
+[[ranges]]
+start = "04-15"
+end = "04-30"
+color = "magenta"
+description = "Tax Season Crunch"
+
+[[ranges]]
+start = "07-01"
+end = "07-04"
+color = "red"
+description = "Independence Week"
+
+[[ranges]]
+start = "09-01"
+end = "09-07"
+color = "cyan"
+description = "Labor Day Weekend"
+
+[[ranges]]
+start = "11-20"
+end = "11-30"
+color = "yellow"
+description = "Thanksgiving Break"
+
+[[ranges]]
+start = "12-20"
+end = "12-31"
+color = "blue"
+description = "Holiday Break"
+
+# Important dates
+[dates."01-15"]
+description = "MLK Day"
+color = "blue"
+
+[dates."02-14"]
+description = "Valentine's Day"
+color = "red"
+
+[dates."03-17"]
+description = "St. Patrick's Day"
+color = "green"
+
+[dates."04-01"]
+description = "April Fools"
+color = "yellow"
+
+[dates."05-05"]
+description = "Cinco de Mayo"
+color = "green"
+
+[dates."05-27"]
+description = "Memorial Day"
+color = "blue"
+
+[dates."06-19"]
+description = "Juneteenth"
+color = "red"
+
+[dates."07-04"]
+description = "Independence Day"
+color = "red"
+
+[dates."09-02"]
+description = "Labor Day"
+color = "blue"
+
+[dates."10-31"]
+description = "Halloween"
+color = "magenta"
+
+[dates."11-11"]
+description = "Veterans Day"
+color = "blue"
+
+[dates."11-28"]
+description = "Thanksgiving"
+color = "yellow"
+
+[dates."12-25"]
+description = "Christmas"
+color = "red"
+
+[dates."12-31"]
+description = "New Year's Eve"
+color = "cyan"
+
+# Work deadlines
+[dates."02-01"]
+description = "Q1 Review Due"
+color = "yellow"
+
+[dates."03-15"]
+description = "Project Alpha Deadline"
+color = "red"
+
+[dates."05-15"]
+description = "Q2 Planning"
+color = "yellow"
+
+[dates."06-30"]
+description = "Mid-Year Review"
+color = "magenta"
+
+[dates."08-01"]
+description = "Product Launch"
+color = "green"
+
+[dates."09-15"]
+description = "Q3 Review Due"
+color = "yellow"
+
+[dates."10-15"]
+description = "Budget Proposal Due"
+color = "red"
+
+[dates."11-01"]
+description = "Annual Report Draft"
+color = "magenta"
+
+[dates."12-15"]
+description = "Year-End Review"
+color = "cyan"
