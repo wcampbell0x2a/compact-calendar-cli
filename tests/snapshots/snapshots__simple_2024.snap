@@ -21,8 +21,8 @@ snapshot_kind: text
 │W09 March    │ 26   27   28   29 │ 01   02   03 │
 │             ├───────────────────┘              │
 │W10          │ 04   05   06   07   08   09   10 │
-│W11          │ 11   12   13   14   15   16   17 │03/15 - Project Alpha Deadline
-│W12          │ 18   19   20   21   22   23   24 │03/17 - St. Patrick's Day
+│W11          │ 11   12   13   14   15   16   17 │03/15 - Project Alpha Deadline, 03/17 - St. Patrick's Day
+│W12          │ 18   19   20   21   22   23   24 │
 │W13          │ 25   26   27   28   29   30   31 │
 │             ├──────────────────────────────────┤
 │W14 April    │ 01   02   03   04   05   06   07 │04/01 - April Fools
@@ -43,8 +43,8 @@ snapshot_kind: text
 │W25          │ 17   18   19   20   21   22   23 │06/19 - Juneteenth
 │W26          │ 24   25   26   27   28   29   30 │06/30 - Mid-Year Review
 │             ├──────────────────────────────────┤
-│W27 July     │ 01   02   03   04   05   06   07 │07/01 to 07/04 - Independence Week
-│W28          │ 08   09   10   11   12   13   14 │07/04 - Independence Day
+│W27 July     │ 01   02   03   04   05   06   07 │07/04 - Independence Day, 07/01 to 07/04 - Independence Week
+│W28          │ 08   09   10   11   12   13   14 │
 │W29          │ 15   16   17   18   19   20   21 │
 │W30          │ 22   23   24   25   26   27   28 │
 │             │              ┌───────────────────┤
@@ -67,9 +67,9 @@ snapshot_kind: text
 │W42          │ 14   15   16   17   18   19   20 │10/15 - Budget Proposal Due
 │W43          │ 21   22   23   24   25   26   27 │
 │             │                   ┌──────────────┤
-│W44 November │ 28   29   30   31 │ 01   02   03 │10/31 - Halloween
+│W44 November │ 28   29   30   31 │ 01   02   03 │10/31 - Halloween, 11/01 - Annual Report Draft
 │             ├───────────────────┘              │
-│W45          │ 04   05   06   07   08   09   10 │11/01 - Annual Report Draft
+│W45          │ 04   05   06   07   08   09   10 │
 │W46          │ 11   12   13   14   15   16   17 │11/11 - Veterans Day
 │W47          │ 18   19   20   21   22   23   24 │11/20 to 11/30 - Thanksgiving Break
 │             │                             ┌────┤

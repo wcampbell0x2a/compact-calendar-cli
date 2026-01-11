@@ -1,6 +1,6 @@
 Set FontSize 10
 Set Padding 2
-Set Width 700
+Set Width 800
 Set Height 950
 Set Theme ayu
 

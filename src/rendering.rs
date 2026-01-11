@@ -641,43 +641,50 @@ impl<'a> CalendarRenderer<'a> {
         shown_ranges: &mut Vec<usize>,
     ) -> String {
         let mut output = String::new();
+        let week_start = layout.dates[0];
         let week_end = layout.dates[DAYS_IN_WEEK - 1];
-        let mut printed_range = false;
+        let mut annotations = Vec::new();
 
+        // Collect all details that occur in this week
+        let mut details_to_remove = Vec::new();
+        for (i, (detail_date, detail)) in details_queue.iter().enumerate() {
+            if *detail_date >= week_start && *detail_date <= week_end {
+                annotations.push(format!(
+                    "{} - {}",
+                    detail_date.format("%m/%d"),
+                    detail.description
+                ));
+                details_to_remove.push(i);
+            }
+        }
+        // Remove details in reverse order to maintain indices
+        for &i in details_to_remove.iter().rev() {
+            details_queue.remove(i);
+        }
+
+        // Collect all ranges that overlap with this week
         for (idx, range) in self.calendar.ranges.iter().enumerate() {
-            if range.start >= layout.dates[0]
-                && range.start <= week_end
-                && !shown_ranges.contains(&idx)
-            {
+            if !shown_ranges.contains(&idx) && range.start <= week_end && range.end >= week_start {
                 if let Some(desc) = &range.description {
-                    output.push_str(&format!(
+                    annotations.push(format!(
                         "{} to {} - {}",
                         range.start.format("%m/%d"),
                         range.end.format("%m/%d"),
                         desc
                     ));
                 } else {
-                    output.push_str(&format!(
+                    annotations.push(format!(
                         "{} to {}",
                         range.start.format("%m/%d"),
                         range.end.format("%m/%d")
                     ));
                 }
                 shown_ranges.push(idx);
-                printed_range = true;
-                break;
             }
         }
 
-        if !printed_range && !details_queue.is_empty() {
-            let (detail_date, detail) = &details_queue[0];
-            output.push_str(&format!(
-                "{} - {}",
-                detail_date.format("%m/%d"),
-                detail.description
-            ));
-            details_queue.remove(0);
-        }
+        // Join all annotations with commas
+        output.push_str(&annotations.join(", "));
 
         output
     }
@@ -1022,14 +1029,50 @@ impl<'a> CalendarRenderer<'a> {
         details_queue: &mut Vec<(NaiveDate, DateDetail)>,
         shown_ranges: &mut Vec<usize>,
     ) {
+        let week_start = layout.dates[0];
         let week_end = layout.dates[DAYS_IN_WEEK - 1];
-        let mut printed_range = false;
+        let mut first = true;
 
+        // Collect and print all details that occur in this week
+        let mut details_to_remove = Vec::new();
+        for (i, (detail_date, detail)) in details_queue.iter().enumerate() {
+            if *detail_date >= week_start && *detail_date <= week_end {
+                if !first {
+                    print!(", ");
+                }
+                first = false;
+
+                if ColorCodes::is_color_disabled() {
+                    print!("{} - {}", detail_date.format("%m/%d"), detail.description);
+                } else if let Some(color) = &detail.color {
+                    let style = ColorCodes::get_bg_color(color)
+                        .fg_color(ColorCodes::black_text().get_fg_color());
+                    print!(
+                        "{}{} - {}{}",
+                        style.render(),
+                        detail_date.format("%m/%d"),
+                        detail.description,
+                        style.render_reset()
+                    );
+                } else {
+                    print!("{} - {}", detail_date.format("%m/%d"), detail.description);
+                }
+                details_to_remove.push(i);
+            }
+        }
+        // Remove details in reverse order to maintain indices
+        for &i in details_to_remove.iter().rev() {
+            details_queue.remove(i);
+        }
+
+        // Collect and print all ranges that overlap with this week
         for (idx, range) in self.calendar.ranges.iter().enumerate() {
-            if range.start >= layout.dates[0]
-                && range.start <= week_end
-                && !shown_ranges.contains(&idx)
-            {
+            if !shown_ranges.contains(&idx) && range.start <= week_end && range.end >= week_start {
+                if !first {
+                    print!(", ");
+                }
+                first = false;
+
                 if ColorCodes::is_color_disabled() {
                     if let Some(desc) = &range.description {
                         print!(
@@ -1069,29 +1112,7 @@ impl<'a> CalendarRenderer<'a> {
                     }
                 }
                 shown_ranges.push(idx);
-                printed_range = true;
-                break;
             }
-        }
-
-        if !printed_range && !details_queue.is_empty() {
-            let (detail_date, detail) = &details_queue[0];
-            if ColorCodes::is_color_disabled() {
-                print!("{} - {}", detail_date.format("%m/%d"), detail.description);
-            } else if let Some(color) = &detail.color {
-                let style = ColorCodes::get_bg_color(color)
-                    .fg_color(ColorCodes::black_text().get_fg_color());
-                print!(
-                    "{}{} - {}{}",
-                    style.render(),
-                    detail_date.format("%m/%d"),
-                    detail.description,
-                    style.render_reset()
-                );
-            } else {
-                print!("{} - {}", detail_date.format("%m/%d"), detail.description);
-            }
-            details_queue.remove(0);
         }
     }
 
