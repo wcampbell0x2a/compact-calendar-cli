@@ -33,14 +33,26 @@ A compact calendar CLI with TOML-based date details
 Usage: compact-calendar-cli [OPTIONS]
 
 Options:
-  -y, --year <YEAR>              Year to display (defaults to current year)
-  -c, --config <CONFIG>          Path to TOML configuration file with date details [default: calendar.toml]
-  -s, --sunday                   Week starts on Sunday (default is Monday)
-      --no-dim-weekends          Don't dim weekend dates (by default weekends are dimmed)
-  -w, --work                     Work mode: never apply colors to Saturday/Sunday
-      --no-strikethrough-past    Don't strikethrough past dates (by default past dates are crossed out)
-  -h, --help                     Print help
-  -V, --version                  Print version
+  -y, --year <YEAR>
+          Year to display (defaults to current year)
+  -c, --config <CONFIG>
+          Path to TOML configuration file with date details [default: calendar.toml]
+  -s, --sunday
+          Week starts on Sunday (default is Monday)
+      --no-dim-weekends
+          Don't dim weekend dates (by default weekends are dimmed)
+  -w, --work
+          Work mode: never apply colors to Saturday/Sunday
+      --no-strikethrough-past
+          Don't strikethrough past dates (by default past dates are crossed out)
+  -m, --month <MONTH>
+          Display a specific month (number 1-12, name like "march", or "current")
+  -f, --following-months <FOLLOWING_MONTHS>
+          Display current month plus N additional months (requires --month current)
+  -h, --help
+          Print help
+  -V, --version
+          Print version
 ```
 
 ## Configuration

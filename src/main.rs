@@ -22,6 +22,7 @@ fn restore_sigpipe_default() {
 }
 
 #[derive(Parser, Debug)]
+#[command(version, about)]
 struct Args {
     /// Year to display (defaults to current year)
     #[arg(short, long)]
