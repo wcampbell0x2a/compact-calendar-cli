@@ -1,7 +1,7 @@
 use chrono::Datelike;
 use clap::Parser;
 use compact_calendar_cli::models::{
-    ColorMode, MonthFilter, PastDateDisplay, WeekStart, WeekendDisplay,
+    CalendarOptions, ColorMode, MonthFilter, PastDateDisplay, WeekStart, WeekendDisplay,
 };
 use compact_calendar_cli::rendering::CalendarRenderer;
 use std::path::PathBuf;
@@ -64,25 +64,19 @@ fn main() {
 
     let config = compact_calendar_cli::load_config(&args.config);
 
-    let week_start = WeekStart::from_sunday_flag(args.sunday);
-    let weekend_display = WeekendDisplay::from_no_dim_flag(args.no_dim_weekends);
-    let color_mode = ColorMode::from_work_flag(args.work);
-    let past_date_display = PastDateDisplay::from_no_strikethrough_flag(args.no_strikethrough_past);
-    let month_filter = MonthFilter::from_cli_args(args.month.as_deref(), args.following_months)
-        .unwrap_or_else(|e| {
-            eprintln!("Error: {}", e);
-            std::process::exit(1);
-        });
+    let options = CalendarOptions {
+        week_start: WeekStart::from_sunday_flag(args.sunday),
+        weekend_display: WeekendDisplay::from_no_dim_flag(args.no_dim_weekends),
+        color_mode: ColorMode::from_work_flag(args.work),
+        past_date_display: PastDateDisplay::from_no_strikethrough_flag(args.no_strikethrough_past),
+        month_filter: MonthFilter::from_cli_args(args.month.as_deref(), args.following_months)
+            .unwrap_or_else(|e| {
+                eprintln!("Error: {}", e);
+                std::process::exit(1);
+            }),
+    };
 
-    let calendar = compact_calendar_cli::build_calendar(
-        year,
-        week_start,
-        weekend_display,
-        color_mode,
-        past_date_display,
-        month_filter,
-        config,
-    );
+    let calendar = compact_calendar_cli::build_calendar(year, options, config);
 
     let renderer = CalendarRenderer::new(&calendar);
     renderer.render();

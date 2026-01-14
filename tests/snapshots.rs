@@ -1,5 +1,5 @@
 use compact_calendar_cli::models::{
-    ColorMode, MonthFilter, PastDateDisplay, WeekStart, WeekendDisplay,
+    CalendarOptions, ColorMode, MonthFilter, PastDateDisplay, WeekStart, WeekendDisplay,
 };
 use compact_calendar_cli::rendering::CalendarRenderer;
 use std::path::PathBuf;
@@ -14,15 +14,14 @@ fn create_calendar_from_config_with_filter(
     month_filter: MonthFilter,
 ) -> String {
     let config = compact_calendar_cli::load_config(&PathBuf::from(config_path));
-    let calendar = compact_calendar_cli::build_calendar(
-        year,
-        WeekStart::Monday,
-        WeekendDisplay::Normal,
-        ColorMode::Normal,
-        PastDateDisplay::Normal,
+    let options = CalendarOptions {
+        week_start: WeekStart::Monday,
+        weekend_display: WeekendDisplay::Normal,
+        color_mode: ColorMode::Normal,
+        past_date_display: PastDateDisplay::Normal,
         month_filter,
-        config,
-    );
+    };
+    let calendar = compact_calendar_cli::build_calendar(year, options, config);
 
     let renderer = CalendarRenderer::new(&calendar);
     renderer.render_to_string()
@@ -67,15 +66,14 @@ fn test_empty_2025() {
 #[test]
 fn test_sunday_start_2024() {
     let config = compact_calendar_cli::load_config(&PathBuf::from("tests/fixtures/simple.toml"));
-    let calendar = compact_calendar_cli::build_calendar(
-        2024,
-        WeekStart::Sunday,
-        WeekendDisplay::Normal,
-        ColorMode::Normal,
-        PastDateDisplay::Normal,
-        MonthFilter::All,
-        config,
-    );
+    let options = CalendarOptions {
+        week_start: WeekStart::Sunday,
+        weekend_display: WeekendDisplay::Normal,
+        color_mode: ColorMode::Normal,
+        past_date_display: PastDateDisplay::Normal,
+        month_filter: MonthFilter::All,
+    };
+    let calendar = compact_calendar_cli::build_calendar(2024, options, config);
 
     let renderer = CalendarRenderer::new(&calendar);
     let output = renderer.render_to_string();

@@ -219,6 +219,15 @@ pub struct DateRange {
     pub description: Option<String>,
 }
 
+#[derive(Debug, Clone)]
+pub struct CalendarOptions {
+    pub week_start: WeekStart,
+    pub weekend_display: WeekendDisplay,
+    pub color_mode: ColorMode,
+    pub past_date_display: PastDateDisplay,
+    pub month_filter: MonthFilter,
+}
+
 pub struct Calendar {
     pub year: i32,
     pub week_start: WeekStart,
@@ -233,21 +242,17 @@ pub struct Calendar {
 impl Calendar {
     pub fn new(
         year: i32,
-        week_start: WeekStart,
-        weekend_display: WeekendDisplay,
-        color_mode: ColorMode,
-        past_date_display: PastDateDisplay,
-        month_filter: MonthFilter,
+        options: CalendarOptions,
         details: HashMap<NaiveDate, DateDetail>,
         ranges: Vec<DateRange>,
     ) -> Self {
         Calendar {
             year,
-            week_start,
-            weekend_display,
-            color_mode,
-            past_date_display,
-            month_filter,
+            week_start: options.week_start,
+            weekend_display: options.weekend_display,
+            color_mode: options.color_mode,
+            past_date_display: options.past_date_display,
+            month_filter: options.month_filter,
             details,
             ranges,
         }
